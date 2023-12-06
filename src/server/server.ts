@@ -1,14 +1,15 @@
 import type * as http from 'http'
 
+import { type Logger } from '@context/shared/domain/Logger'
 import cors from 'cors'
 import errorHandler from 'errorhandler'
 import express, { type Request, type Response } from 'express'
 import Router from 'express-promise-router'
 import httpStatus from 'http-status'
 
-import { type Logger } from '@context/shared/domain/Logger'
+import { WinstonLogger } from '../contexts/shared/infrastructure/WinstonLogger'
+
 import { registerRoutes } from './routes'
-import {WinstonLogger} from '../contexts/shared/infrastructure/WinstonLogger'
 
 interface ServerInterface {
   stop: () => Promise<void>
@@ -18,7 +19,7 @@ interface ServerInterface {
 
 export function Server (port: string): ServerInterface {
   let httpServer: http.Server
-  let logger: Logger = WinstonLogger()
+  const logger: Logger = WinstonLogger()
   const expressApp: express.Express = express()
   const router = Router()
 

@@ -1,5 +1,6 @@
-import winston, { Logger as WinstonLoggerType } from 'winston'
-import {Logger} from '../domain/Logger'
+import winston, { type Logger as WinstonLoggerType } from 'winston'
+
+import { type Logger } from '../domain/Logger'
 
 export function WinstonLogger (): Logger {
   const logger: WinstonLoggerType = winston.createLogger({
@@ -19,7 +20,7 @@ export function WinstonLogger (): Logger {
     logger.debug(message)
   }
 
-  function error(message: string | Error): void {
+  function error (message: string | Error): void {
     logger.error(message)
   }
 
@@ -37,5 +38,4 @@ export function WinstonLogger (): Logger {
     info,
     warn
   }
-
 }

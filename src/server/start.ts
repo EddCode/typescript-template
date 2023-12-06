@@ -1,4 +1,5 @@
 import { WinstonLogger } from '../contexts/shared/infrastructure/WinstonLogger'
+
 import { Server } from './server'
 
 function init (): void {
