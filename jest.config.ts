@@ -6,7 +6,7 @@ const config: Config = {
     coverageDirectory: 'coverage',
     collectCoverage: true,
     moduleFileExtensions: ['js', 'ts',],
-    verbose: true
+    verbose: true,
 }
 
 /* eslint-disable-next-line import/no-default-export */

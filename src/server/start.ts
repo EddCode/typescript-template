@@ -2,11 +2,11 @@ import { WinstonLogger } from '../contexts/shared/infrastructure/WinstonLogger'
 
 import { Server } from './server'
 
-function init (): void {
+async function init (): Promise<void> {
   try {
     const port: string = '3000'
     const server = Server(port)
-    server.listen()
+    await server.listen()
   } catch (err: unknown) {
     handleError(err)
   }
@@ -17,4 +17,4 @@ function handleError (err: unknown): void {
   process.exit(1)
 }
 
-init()
+init().catch(_ => _)

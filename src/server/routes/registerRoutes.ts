@@ -2,6 +2,7 @@ import { type Router } from 'express'
 import { glob } from 'glob'
 
 export function registerRoutes (router: Router): void {
+  // eslint-disable-next-line n/no-path-concat
   const routes = glob.sync(`${__dirname}/**/*.route.*`)
   routes.forEach(route => { register(route, router) })
 }
